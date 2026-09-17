@@ -1,0 +1,179 @@
+.signin-container {
+  display: flex;
+  min-height: 100vh;
+  animation: fadeIn 0.4s ease;
+}
+.signin-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 2rem;
+}
+.signin-form-wrapper {
+  max-width: 500px;
+  width: 100%;
+}
+.signin-form-wrapper h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+.subtitle {
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #334155;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.form-links a {
+  color: #22c55e;
+  font-size: 0.875rem;
+}
+.signin-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+.signin-btn:hover {
+  background: #16a34a;
+}
+.error {
+  color: #dc2626;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+.brand h2 {
+  font-size: 2rem;
+  color: #0f172a;
+}
+.brand h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #334155;
+}
+.brand p {
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.stats div {
+  text-align: center;
+}
+.stats span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #22c55e;
+}
+.image-placeholder {
+  margin-top: 2rem;
+}
+.placeholder-box {
+  background: #e2e8f0;
+  border-radius: 1rem;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  border: 2px dashed #cbd5e1;
+}
+
+.signin-right {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: #dcfce7;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+App.css * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: #f3f4f6;
+}
+.password-field {
+  position: relative;
+}
+.password-field input {
+  padding-right: 2.8rem;
+}
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+}
+.password-toggle:hover {
+  color: #475569;
+}

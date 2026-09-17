@@ -1,0 +1,63 @@
+.notifications-panel {
+  background: #fff;
+  border-radius: 0.85rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.notifications-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.notifications-panel h3 {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+.view-all {
+  font-size: 0.72rem;
+  color: #22c55e;
+  text-decoration: none;
+  font-weight: 600;
+}
+.notifications-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.notifications-panel li {
+  padding: 0.7rem 0;
+  border-top: 1px solid #eef2f7;
+}
+.notifications-panel li:first-child {
+  border-top: 0;
+}
+.notif-content {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  color: #334155;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+.notif-icon {
+  color: #22c55e;
+  flex: 0 0 auto;
+  margin-top: 0.1rem;
+}
+.meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.3rem;
+  margin-left: 1.35rem;
+}
+.time {
+  color: #94a3b8;
+  font-size: 0.68rem;
+}
+.live {
+  color: #16a34a;
+  font-size: 0.64rem;
+  font-weight: 600;
+}

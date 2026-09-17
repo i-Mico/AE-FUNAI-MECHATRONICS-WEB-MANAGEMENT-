@@ -1,0 +1,45 @@
+.signup-page { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 1fr; background: #f8fafc; }
+.signup-visual { min-height: 100vh; background-size: cover; background-position: center; color: #fff; position: relative; }
+.signup-visual-copy { min-height: 100%; padding: 2rem clamp(2rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(180deg, rgba(2,18,13,.05), rgba(2,18,13,.3)); }
+.signup-brand { display: flex; gap: .75rem; align-items: center; }
+.signup-brand-mark { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: #22c55e; font-weight: 800; }
+.signup-brand strong, .signup-brand small { display: block; }
+.signup-brand strong { font-size: 1rem; }
+.signup-brand small { font-size: .7rem; opacity: .8; margin-top: .1rem; }
+.signup-hero-copy { max-width: 560px; padding-bottom: 3rem; }
+.signup-hero-copy .eyebrow { color: #bbf7d0; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; margin-bottom: .7rem; }
+.signup-hero-copy h1 { font-size: clamp(2.2rem, 4vw, 4rem); line-height: 1.04; margin-bottom: 1rem; }
+.signup-hero-copy > p { max-width: 520px; color: rgba(255,255,255,.84); line-height: 1.6; }
+.signup-stats { display: flex; gap: 2rem; margin-top: 2rem; }
+.signup-stats div { display: grid; }
+.signup-stats strong { font-size: 1.4rem; }
+.signup-stats span { color: rgba(255,255,255,.7); font-size: .72rem; }
+.signup-form-panel { display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.signup-form-wrap { width: min(100%, 560px); }
+.signup-heading h2 { margin: 0; color: #0f172a; font-size: 1.7rem; }
+.signup-heading p { margin: .35rem 0 1.65rem; color: #94a3b8; font-size: .9rem; }
+.signup-form { display: grid; gap: 1rem; }
+.signup-form label { display: grid; gap: .4rem; color: #334155; font-size: .78rem; font-weight: 600; }
+.input-with-icon { position: relative; }
+.input-with-icon > svg { position: absolute; left: .8rem; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
+.signup-form input, .signup-form select { width: 100%; height: 42px; border: 1px solid #dbe2e8; border-radius: .55rem; background: #fff; color: #0f172a; padding: 0 .8rem 0 2.25rem; outline: none; font: inherit; }
+.signup-form select { padding-left: .8rem; }
+.signup-form input:focus, .signup-form select:focus { border-color: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.12); }
+.field-icon-button { position: absolute; top: 50%; right: .7rem; transform: translateY(-50%); border: 0; background: transparent; color: #94a3b8; display: grid; place-items: center; padding: .2rem; }
+.signup-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.password-meter { margin-top: -.35rem; }
+.password-meter-label { display: flex; justify-content: space-between; color: #94a3b8; font-size: .7rem; }
+.password-meter-label strong { color: #22c55e; }
+.password-meter-track { height: 5px; border-radius: 999px; background: #eef2f4; overflow: hidden; margin-top: .25rem; }
+.password-meter-track span { display: block; height: 100%; background: #fbbf24; border-radius: inherit; transition: width .2s; }
+.signup-message { margin: 0; padding: .75rem .85rem; border-radius: .55rem; font-size: .78rem; }
+.signup-message.error { background: #fef2f2; color: #b91c1c; }
+.signup-message.success { background: #ecfdf5; color: #047857; }
+.signup-submit { height: 42px; border: 0; border-radius: .55rem; background: #22c55e; color: #fff; font-weight: 700; }
+.signup-submit:hover { background: #16a34a; }
+.signup-submit:disabled { opacity: .65; cursor: wait; }
+.signup-login { text-align: center; color: #64748b; font-size: .82rem; margin: 1.4rem 0 0; }
+.signup-login a { color: #16a34a; font-weight: 700; }
+.signup-footer { text-align: center; color: #cbd5e1; font-size: .72rem; margin-top: 1.4rem; }
+@media (max-width: 900px) { .signup-page { grid-template-columns: 1fr; } .signup-visual { min-height: 300px; } .signup-visual-copy { min-height: 300px; } .signup-hero-copy { padding-bottom: 0; } }
+@media (max-width: 560px) { .signup-form-panel { padding: 1.25rem; } .signup-two-col { grid-template-columns: 1fr; } .signup-stats { gap: 1.2rem; } }

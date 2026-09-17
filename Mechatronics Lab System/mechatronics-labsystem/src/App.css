@@ -1,0 +1,296 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+App.css * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+/* scrollbar etc. can go here */
+
+/* Global appearance controls. These classes are applied to <body> so the
+   preference is shared by the sidebar and every routed page. */
+body.theme-dark {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  color-scheme: dark;
+}
+body.theme-dark .page-layout,
+body.theme-dark .dashboard-page,
+body.theme-dark .page-content,
+body.theme-dark .dashboard-main {
+  background-color: #0f172a !important;
+  color: #e2e8f0;
+}
+body.theme-dark .sidebar,
+body.theme-dark .mobile-bottom-nav {
+  background-color: #111827 !important;
+  border-color: #334155 !important;
+}
+body.theme-dark .sidebar-header,
+body.theme-dark .sidebar-footer {
+  border-color: #334155 !important;
+}
+body.theme-dark .sidebar-header h2,
+body.theme-dark .user-info .name,
+body.theme-dark .dashboard-header h1,
+body.theme-dark .post-title,
+body.theme-dark .admin-metric-card strong,
+body.theme-dark .staff-summary-card strong,
+body.theme-dark .student-summary-card strong,
+body.theme-dark .section-title-row h2,
+body.theme-dark .notifications-panel h3,
+body.theme-dark .settings-header h1,
+body.theme-dark .settings-panel h2,
+body.theme-dark .collab-header h1 {
+  color: #f8fafc !important;
+}
+body.theme-dark .sidebar-header .sub,
+body.theme-dark .user-info .role,
+body.theme-dark .dashboard-welcome,
+body.theme-dark .collab-header p,
+body.theme-dark .post-content,
+body.theme-dark .post-meta,
+body.theme-dark .section-desc,
+body.theme-dark .notifications-panel .time {
+  color: #94a3b8 !important;
+}
+body.theme-dark .sidebar-nav a {
+  color: #cbd5e1;
+}
+body.theme-dark .sidebar-nav a:hover {
+  background: #1e293b;
+}
+body.theme-dark .sidebar-nav a.active {
+  background: #22c55e;
+  color: #fff;
+}
+body.theme-dark .mobile-bottom-nav a {
+  color: #94a3b8;
+}
+body.theme-dark .admin-metric-card,
+body.theme-dark .staff-summary-card,
+body.theme-dark .student-summary-card,
+body.theme-dark .staff-duty-card,
+body.theme-dark .staff-availability-card,
+body.theme-dark .post-card,
+body.theme-dark .collab-search,
+body.theme-dark .role-filters button,
+body.theme-dark .chat-side-card,
+body.theme-dark .board-stats-card,
+body.theme-dark .collab-empty,
+body.theme-dark .notifications-panel,
+body.theme-dark .collab-modal,
+body.theme-dark .chat-modal,
+body.theme-dark .settings-container {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0;
+}
+body.theme-dark .tag,
+body.theme-dark .attachment,
+body.theme-dark .selected-attachments span,
+body.theme-dark .chat-messages {
+  background: #172033 !important;
+  border-color: #334155 !important;
+  color: #cbd5e1;
+}
+body.theme-dark .collab-search input,
+body.theme-dark .collab-modal input,
+body.theme-dark .collab-modal textarea,
+body.theme-dark .chat-form input,
+body.theme-dark .settings-form input,
+body.theme-dark .security-form input {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+body.theme-dark .stat-row + .stat-row,
+body.theme-dark .post-engagement,
+body.theme-dark .notifications-panel li {
+  border-color: #334155;
+}
+body.theme-dark .settings-sidebar {
+  background: #172033 !important;
+  border-color: #334155 !important;
+}
+body.theme-dark .settings-sidebar button {
+  color: #cbd5e1;
+}
+body.theme-dark .settings-sidebar button:hover {
+  background: #1e293b;
+}
+body.theme-dark .settings-sidebar button.active {
+  background: #173b24;
+  color: #fdba74;
+}
+
+body.compact-mode .sidebar-header {
+  padding: 1rem;
+}
+body.compact-mode .sidebar-nav {
+  padding: 1rem 0.75rem;
+}
+body.compact-mode .sidebar-nav a {
+  padding: 0.45rem 0.75rem;
+}
+body.compact-mode .sidebar-footer {
+  padding: 0.75rem;
+}
+body.compact-mode .dashboard-main,
+body.compact-mode .page-content {
+  padding: 1rem 1.25rem 1.5rem;
+}
+body.compact-mode .admin-metric-card,
+body.compact-mode .staff-summary-card,
+body.compact-mode .student-summary-card,
+body.compact-mode .post-card,
+body.compact-mode .notifications-panel,
+body.compact-mode .settings-content {
+  padding: 0.8rem;
+}
+body.compact-mode .dashboard-two-columns,
+body.compact-mode .collaboration-layout {
+  gap: 0.85rem;
+}
+
+/* Core page surfaces: App.css must be imported by App.tsx for this global theme
+   to apply across routed pages, not only on Settings. */
+body.theme-dark .page-layout,
+body.theme-dark .page-content,
+body.theme-dark main,
+body.theme-dark section,
+body.theme-dark article,
+body.theme-dark .page-header,
+body.theme-dark .content-card,
+body.theme-dark .card,
+body.theme-dark .panel,
+body.theme-dark .modal,
+body.theme-dark .dropdown-menu {
+  color: #e2e8f0;
+}
+
+/* Common white surfaces used by pages outside Dashboard/Collaboration. */
+body.theme-dark .equipment-card,
+body.theme-dark .maintenance-card,
+body.theme-dark .notification-card,
+body.theme-dark .notification-item,
+body.theme-dark .report-card,
+body.theme-dark .overview-card,
+body.theme-dark .chart-section,
+body.theme-dark .equipment-section,
+body.theme-dark .profile-card,
+body.theme-dark .profile-section,
+body.theme-dark .shop-card,
+body.theme-dark .product-card,
+body.theme-dark .cart-drawer,
+body.theme-dark .modal-content,
+body.theme-dark .schedule-card,
+body.theme-dark .schedule-grid,
+body.theme-dark .settings-panel {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0;
+}
+
+/* Generic text/form treatment for pages whose existing CSS uses dark-on-light
+   values. More specific existing component rules still take precedence where
+   they are intentionally styled. */
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark label,
+body.theme-dark strong,
+body.theme-dark th,
+body.theme-dark td,
+body.theme-dark p,
+body.theme-dark span,
+body.theme-dark li {
+  border-color: #334155;
+}
+
+body.theme-dark input,
+body.theme-dark textarea,
+body.theme-dark select {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+body.theme-dark input::placeholder,
+body.theme-dark textarea::placeholder {
+  color: #64748b;
+}
+
+
+/* Shared application header ------------------------------------------------ */
+.app-header {
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 260px;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.25rem;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid #e2e8f0;
+  backdrop-filter: blur(10px);
+}
+.app-header-title { display:flex; align-items:center; gap:.65rem; min-width:0; }
+.app-header-brand { color:#0f172a; font-size:.9rem; font-weight:700; white-space:nowrap; }
+.app-header-separator { color:#cbd5e1; }
+.app-header-title h1 { margin:0; color:#0f172a; font-size:1rem; font-weight:600; white-space:nowrap; }
+.app-header-actions { display:flex; align-items:center; gap:.55rem; }
+.icon-button { position:relative; width:36px; height:36px; border:1px solid transparent; border-radius:.55rem; display:grid; place-items:center; background:transparent; color:#64748b; text-decoration:none; }
+.icon-button:hover { background:#f8fafc; color:#22c55e; }
+.notification-button .notification-dot { position:absolute; top:7px; right:7px; width:6px; height:6px; border-radius:50%; background:#22c55e; box-shadow:0 0 0 2px #fff; }
+.profile-menu-wrap { position:relative; }
+.profile-menu-trigger { display:flex; align-items:center; gap:.55rem; border:0; background:transparent; padding:.25rem .1rem .25rem .35rem; color:#334155; }
+.profile-avatar { width:32px; height:32px; border-radius:50%; display:grid; place-items:center; background:#dcfce7; color:#15803d; font-size:.78rem; font-weight:800; }
+.profile-menu-name { font-size:.82rem; font-weight:600; }
+.profile-menu-trigger > svg { transition:transform .15s; color:#94a3b8; }
+.rotate-180 { transform:rotate(180deg); }
+.profile-menu { position:absolute; top:calc(100% + .55rem); right:0; min-width:170px; padding:.35rem; background:#fff; border:1px solid #e2e8f0; border-radius:.75rem; box-shadow:0 16px 40px rgba(15,23,42,.12); }
+.profile-menu a, .profile-menu button:not(.profile-menu-close) { width:100%; display:flex; align-items:center; gap:.55rem; padding:.6rem .65rem; border:0; border-radius:.5rem; background:transparent; color:#475569; font:inherit; font-size:.78rem; text-decoration:none; text-align:left; }
+.profile-menu a:hover, .profile-menu button:not(.profile-menu-close):hover { background:#f0fdf4; color:#15803d; }
+.profile-menu-close { display:none; }
+
+.auth-loading { min-height:100vh; display:grid; place-items:center; background:#f8fafc; color:#64748b; }
+body.theme-dark .app-header { background:rgba(15,23,42,.96); border-color:#334155; }
+body.theme-dark .app-header-brand, body.theme-dark .app-header-title h1 { color:#f8fafc; }
+body.theme-dark .profile-menu-trigger, body.theme-dark .profile-menu a, body.theme-dark .profile-menu button:not(.profile-menu-close) { color:#cbd5e1; }
+body.theme-dark .profile-menu { background:#1e293b; border-color:#334155; }
+body.theme-dark .profile-menu a:hover, body.theme-dark .profile-menu button:not(.profile-menu-close):hover { background:#173b24; color:#86efac; }
+body.theme-dark .icon-button:hover { background:#1e293b; }
+
+.dashboard-main, .equipment-main, .shop-main, .page-content { padding-top: 5rem !important; }
+
+@media (max-width: 768px) {
+  .app-header { left:0; height:58px; padding:0 .9rem; }
+  .app-header-brand { display:none; }
+  .app-header-separator { display:none; }
+  .profile-menu-name { display:none; }
+  .dashboard-main, .equipment-main, .shop-main, .page-content { padding-top: 4.2rem !important; }
+}

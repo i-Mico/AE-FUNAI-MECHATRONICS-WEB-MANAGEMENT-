@@ -1,0 +1,119 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 1rem;
+}
+.modal-content {
+  background: white;
+  border-radius: 1rem;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 1.5rem;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.modal-image {
+  background: #f1f5f9;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  min-height: 300px;
+}
+.modal-info h2 {
+  margin: 0 2.5rem 0.5rem 0;
+}
+.modal-desc {
+  margin: 1rem 0;
+  color: #475569;
+  line-height: 1.5;
+}
+.specs {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+.specs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.specs li {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+.stock-status {
+  color: #475569;
+  font-size: 0.85rem;
+  margin: 0.75rem 0;
+}
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.quantity-selector button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.quantity-selector button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.add-to-cart-modal {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add-to-cart-modal:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+@media (max-width: 768px) {
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-image {
+    min-height: 220px;
+  }
+}
+
+.modal-image img { width:100%; height:100%; max-height:460px; object-fit:contain; border-radius:1rem; }

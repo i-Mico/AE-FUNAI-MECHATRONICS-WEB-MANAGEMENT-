@@ -1,0 +1,351 @@
+.maintenance-header {
+  margin-bottom: 2rem;
+}
+.maintenance-header h1 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+.maintenance-header p {
+  color: #64748b;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.stat-label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.stat-desc {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+.stat-card.faulty .stat-value {
+  color: #dc2626;
+}
+.stat-card.service-due .stat-value {
+  color: #f59e0b;
+}
+.stat-card.good .stat-value {
+  color: #10b981;
+}
+.stat-card.total .stat-value {
+  color: #3b82f6;
+}
+
+.maintenance-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 250px;
+  background: transparent;
+}
+
+.status-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.status-filters button {
+  padding: 0.4rem 1rem;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.status-filters button.active {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: white;
+}
+
+.equipment-table-container {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+  overflow-x: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.equipment-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+.equipment-table th {
+  text-align: left;
+  padding: 1rem;
+  background: #f8fafc;
+  font-weight: 600;
+  color: #1e293b;
+  border-bottom: 1px solid #e2e8f0;
+}
+.equipment-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+.equipment-name {
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.status-badge.faulty {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.status-badge.service-due {
+  background: #dcfce7;
+  color: #d97706;
+}
+.status-badge.good {
+  background: #dcfce7;
+  color: #15803d;
+}
+.status-icon.faulty {
+  color: #dc2626;
+}
+.status-icon.service-due {
+  color: #d97706;
+}
+.status-icon.good {
+  color: #15803d;
+}
+.overdue {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.scheduled-value {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.scheduled-value small {
+  color: #10b981;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+.priority-high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.priority-medium {
+  background: #dcfce7;
+  color: #d97706;
+}
+.priority-low {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.action-btn:hover {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: white;
+}
+
+.maintenance-empty-state {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.maintenance-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.52);
+  backdrop-filter: blur(3px);
+}
+
+.maintenance-modal {
+  width: min(100%, 480px);
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.2);
+}
+
+.maintenance-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+.maintenance-modal-kicker {
+  color: #22c55e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.maintenance-modal-header h2 {
+  margin-top: 0.15rem;
+  color: #0f172a;
+}
+.maintenance-modal-close {
+  border: none;
+  background: none;
+  font-size: 1.35rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.maintenance-modal-equipment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: #f8fafc;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+.maintenance-modal-equipment strong {
+  color: #0f172a;
+}
+.maintenance-modal-equipment span {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+.maintenance-date-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+.maintenance-date-input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font: inherit;
+}
+
+.maintenance-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.modal-secondary-btn,
+.modal-primary-btn {
+  padding: 0.65rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.modal-secondary-btn {
+  background: #f1f5f9;
+  color: #334155;
+}
+.modal-primary-btn {
+  background: #22c55e;
+  color: white;
+}
+.modal-primary-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 100%;
+  }
+  .search-bar input {
+    width: 100%;
+  }
+  .status-filters {
+    width: 100%;
+  }
+  .status-filters button {
+    flex: 1;
+  }
+  .maintenance-modal {
+    padding: 1.25rem;
+  }
+  .maintenance-modal-actions {
+    flex-direction: column-reverse;
+  }
+  .modal-secondary-btn,
+  .modal-primary-btn {
+    width: 100%;
+  }
+}

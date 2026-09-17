@@ -1,0 +1,184 @@
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  color: #0f172a;
+}
+
+.sidebar-header h2 span {
+  color: #22c55e;
+}
+
+.sidebar-header .sub {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1.5rem 1rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  color: #334155;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #dcfce7;
+  color: #22c55e;
+}
+
+.sidebar-nav a.active {
+  background-color: #22c55e;
+  color: white;
+}
+
+.sidebar-nav .icon {
+  flex-shrink: 0;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.user-info .name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.user-info .role {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.logout-btn {
+  width: 100%;
+  background-color: #fee2e2;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  color: #dc2626;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #fecaca;
+}
+
+/* Hidden on desktop; the reference's bottom navigation is introduced below mobile breakpoint. */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    min-height: 62px;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+  }
+
+  .mobile-bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.65rem;
+    font-weight: 500;
+  }
+
+  .mobile-bottom-nav a svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .mobile-bottom-nav a.active {
+    color: #22c55e;
+  }
+}
+
+body.theme-dark .sidebar-nav a.active {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+body.compact-mode .sidebar {
+  width: 228px;
+}
+body.compact-mode .sidebar-nav li {
+  margin-bottom: 0.12rem;
+}

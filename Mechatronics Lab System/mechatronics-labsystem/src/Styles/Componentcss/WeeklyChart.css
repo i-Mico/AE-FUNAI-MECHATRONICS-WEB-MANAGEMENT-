@@ -1,0 +1,22 @@
+.weekly-chart {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.4s ease;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.weekly-chart h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #1e293b;
+}
