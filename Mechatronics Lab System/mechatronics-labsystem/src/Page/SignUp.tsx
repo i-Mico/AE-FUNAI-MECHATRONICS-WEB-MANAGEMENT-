@@ -54,6 +54,7 @@ export function SignUp() {
       matricNumber,
       level,
       department,
+      email: universityEmail || gmailAddress,
       gmailAddress,
       universityEmail,
       password,
