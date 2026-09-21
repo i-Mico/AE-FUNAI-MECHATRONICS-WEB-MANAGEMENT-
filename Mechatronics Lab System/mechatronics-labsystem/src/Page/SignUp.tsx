@@ -25,30 +25,59 @@ export function SignUp() {
   const [success, setSuccess] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
+  const passwordRequirements = useMemo(() => ({
+   minLength: password.length >= 8,
+   uppercase: /[A-Z]/.test(password),
+   lowercase: /[a-z]/.test(password),
+   number: /\d/.test(password),
+  }), [password]);
+
   const passwordStrength = useMemo(() => {
+    const score = Object.values(passwordRequirements).filter(Boolean).length;
+
     if (!password) return { label: 'Password strength', width: 0 };
-    let score = 0;
-    if (password.length >= 8) score += 1;
-    if (/[A-Z]/.test(password)) score += 1;
-    if (/[a-z]/.test(password)) score += 1;
-    if (/\d/.test(password)) score += 1;
-    if (/[^A-Za-z0-9]/.test(password)) score += 1;
-    if (score <= 2) return { label: 'Fair', width: 40 };
-    if (score <= 3) return { label: 'Good', width: 65 };
-    return { label: 'Strong', width: 90 };
-  }, [password]);
+    if (score <= 1) return { label: 'Weak', width: 25 };
+    if (score === 2) return { label: 'Fair', width: 50 };
+    if (score === 3) return { label: 'Good', width: 75 };
+    return { label: 'Strong', width: 100 };
+  }, [password, passwordRequirements]);
+
+  const passwordIsValid = Object.values(passwordRequirements).every(Boolean);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setError('');
     setSuccess('');
 
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
+    if (!passwordIsValid) {
+    const missingRequirements: string[] = [];
+
+    if (!passwordRequirements.minLength) {
+     missingRequirements.push('at least 8 characters');
     }
 
-    setSubmitting(true);
+    if (!passwordRequirements.uppercase) {
+     missingRequirements.push('one uppercase letter');
+    }
+
+    if (!passwordRequirements.lowercase) {
+     missingRequirements.push('one lowercase letter');
+    }
+
+    if (!passwordRequirements.number) {
+     missingRequirements.push('one number');
+    }
+
+    setError(`Your password is missing ${missingRequirements.join(', ')}.`);
+   return;
+  }
+
+   if (password !== confirmPassword) {
+   setError('Passwords do not match.');
+   return;
+  }
+
+  setSubmitting(true);
     const result = await register({
       fullName,
       matricNumber,
@@ -58,7 +87,7 @@ export function SignUp() {
       gmailAddress,
       universityEmail,
       password,
-    });
+   });
     setSubmitting(false);
 
     if (!result.success) {
@@ -100,8 +129,74 @@ export function SignUp() {
             <label>Gmail Address<div className="input-with-icon"><FiMail /><input type="email" value={gmailAddress} onChange={(e) => setGmailAddress(e.target.value)} placeholder="you@gmail.com" required /></div></label>
             <label>University Email<div className="input-with-icon"><FiMail /><input type="email" value={universityEmail} onChange={(e) => setUniversityEmail(e.target.value)} placeholder="you@university.edu.ng" required /></div></label>
 
-            <label>Password<div className="input-with-icon"><FiLock /><input type={showPassword ? 'text' : 'password'} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Create a password" minLength={8} required /><button type="button" className="field-icon-button" onClick={() => setShowPassword((value) => !value)} aria-label={showPassword ? 'Hide password' : 'Show password'}>{showPassword ? <FiEyeOff /> : <FiEye />}</button></div></label>
-            <div className="password-meter"><div className="password-meter-label"><span>{passwordStrength.label}</span><strong>{password ? passwordStrength.label : ''}</strong></div><div className="password-meter-track"><span style={{ width: `${passwordStrength.width}%` }} /></div></div>
+           <label>
+            Password
+            <div className="input-with-icon">
+             <FiLock />
+            <input
+             type={showPassword ? 'text' : 'password'}
+             value={password}
+             onChange={(e) => {
+              setPassword(e.target.value);
+              setError('');
+            }}
+           placeholder="Create a password"
+           minLength={8}
+           required
+           aria-invalid={password.length > 0 && !passwordIsValid}
+         />
+        <button
+         type="button"
+         className="field-icon-button"
+         onClick={() => setShowPassword((value) => !value)}
+         aria-label={showPassword ? 'Hide password' : 'Show password'}
+        >
+        {showPassword ? <FiEyeOff /> : <FiEye />}
+       </button>
+      </div>
+    </label>
+
+    <div className="password-meter">
+     <div className="password-meter-label">
+      <span>{passwordStrength.label}</span>
+     <strong>{password ? passwordStrength.label : ''}</strong>
+    </div>
+  <div className="password-meter-track">
+      <span style={{ width: `${passwordStrength.width}%` }} />
+    </div>
+    </div>
+
+<div className="password-requirements">
+  <p className="password-requirements-title">Password requirements</p>
+
+  <div className={`password-requirement ${passwordRequirements.minLength ? 'met' : 'unmet'}`}>
+    <span className="password-requirement-icon">
+      {passwordRequirements.minLength ? '✓' : '○'}
+    </span>
+    <span>At least 8 characters</span>
+  </div>
+
+  <div className={`password-requirement ${passwordRequirements.uppercase ? 'met' : 'unmet'}`}>
+    <span className="password-requirement-icon">
+      {passwordRequirements.uppercase ? '✓' : '○'}
+    </span>
+    <span>One uppercase letter</span>
+  </div>
+
+  <div className={`password-requirement ${passwordRequirements.lowercase ? 'met' : 'unmet'}`}>
+    <span className="password-requirement-icon">
+      {passwordRequirements.lowercase ? '✓' : '○'}
+    </span>
+    <span>One lowercase letter</span>
+  </div>
+
+  <div className={`password-requirement ${passwordRequirements.number ? 'met' : 'unmet'}`}>
+    <span className="password-requirement-icon">
+      {passwordRequirements.number ? '✓' : '○'}
+    </span>
+    <span>One number</span>
+  </div>
+</div>
 
             <label>Confirm Password<div className="input-with-icon"><FiLock /><input type={showConfirm ? 'text' : 'password'} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Re-enter your password" required /><button type="button" className="field-icon-button" onClick={() => setShowConfirm((value) => !value)} aria-label={showConfirm ? 'Hide password' : 'Show password'}>{showConfirm ? <FiEyeOff /> : <FiEye />}</button></div></label>
 

@@ -43,3 +43,57 @@
 .signup-footer { text-align: center; color: #cbd5e1; font-size: .72rem; margin-top: 1.4rem; }
 @media (max-width: 900px) { .signup-page { grid-template-columns: 1fr; } .signup-visual { min-height: 300px; } .signup-visual-copy { min-height: 300px; } .signup-hero-copy { padding-bottom: 0; } }
 @media (max-width: 560px) { .signup-form-panel { padding: 1.25rem; } .signup-two-col { grid-template-columns: 1fr; } .signup-stats { gap: 1.2rem; } }
+.password-requirements {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.55rem;
+  background: #f8fafc;
+}
+
+.password-requirements-title {
+  margin: 0 0 0.15rem;
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.password-requirement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.password-requirement-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 1.05rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  color: #94a3b8;
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.password-requirement.met {
+  color: #15803d;
+}
+
+.password-requirement.met .password-requirement-icon {
+  border-color: #22c55e;
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.password-requirement.unmet .password-requirement-icon {
+  background: #fff;
+}

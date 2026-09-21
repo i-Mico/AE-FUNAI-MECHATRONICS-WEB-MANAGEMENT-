@@ -1,4 +1,8 @@
-export type ApiErrorPayload = { message?: string; error?: string };
+export type ApiErrorPayload = {
+  message?: string;
+  error?: string;
+  errors?: Record<string, string[]>;
+};
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '');
 
@@ -16,7 +20,20 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     let message = `Request failed (${response.status})`;
     try {
       const payload = (await response.json()) as ApiErrorPayload;
-      message = payload.message || payload.error || message;
+
+   if (payload.errors) {
+    const validationMessages = Object.values(payload.errors)
+    .flat()
+    .filter(Boolean);
+
+   if (validationMessages.length > 0) {
+    message = validationMessages.join(' ');
+   } else {
+    message = payload.message || payload.error || message;
+  }
+} else {
+  message = payload.message || payload.error || message;
+}
     } catch {
       // Keep the HTTP fallback when the server does not return JSON.
     }
