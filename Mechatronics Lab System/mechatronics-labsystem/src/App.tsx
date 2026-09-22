@@ -5,6 +5,7 @@ import { CartProvider } from './contexts/CartContext';
 import { ProtectedRoute } from './Components/ProtectedRoute';
 import { SignIn } from './Page/SignIn';
 import { SignUp } from './Page/SignUp';
+import { ForgotPassword } from './Page/ForgotPassword';
 import { Dashboard } from './Page/Dashboard';
 import { Equipment } from './Page/Equipment';
 import { Shop } from './Page/Shop';
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/equipment" element={<Equipment />} />

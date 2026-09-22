@@ -51,10 +51,24 @@ export const api = {
       method: 'POST',
       body: JSON.stringify(payload),
     }),
-  register: (payload: import('../contexts/AuthContext').RegisterPayload) =>
+    register: (payload: import('../contexts/AuthContext').RegisterPayload) =>
     request<{ user?: import('../contexts/AuthContext').User; message?: string }>('/auth/register', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    }),
+
+  forgotPassword: (payload: { email: string }) =>
+    request<{ message: string }>('/auth/forgot-password', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    }),
+
+  resetPassword: (payload: { token: string; password: string }) =>
+    request<{ message: string }>('/auth/reset-password', {
       method: 'POST',
       body: JSON.stringify(payload),
     }),
   logout: () => request<void>('/auth/logout', { method: 'POST' }),
 };
+
+
