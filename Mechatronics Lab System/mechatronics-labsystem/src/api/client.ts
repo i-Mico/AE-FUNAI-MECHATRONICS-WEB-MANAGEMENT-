@@ -1,16 +1,15 @@
-export type ApiErrorPayload = {
-  message?: string;
-  error?: string;
-  errors?: Record<string, string[]>;
-};
+export type ApiErrorPayload = { message?: string; error?: string };
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '');
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "/api").replace(
+  /\/$/,
+  "",
+);
 
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
-    credentials: 'include',
+    credentials: "include",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...(init.headers || {}),
     },
     ...init,
@@ -20,20 +19,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     let message = `Request failed (${response.status})`;
     try {
       const payload = (await response.json()) as ApiErrorPayload;
-
-   if (payload.errors) {
-    const validationMessages = Object.values(payload.errors)
-    .flat()
-    .filter(Boolean);
-
-   if (validationMessages.length > 0) {
-    message = validationMessages.join(' ');
-   } else {
-    message = payload.message || payload.error || message;
-  }
-} else {
-  message = payload.message || payload.error || message;
-}
+      message = payload.message || payload.error || message;
     } catch {
       // Keep the HTTP fallback when the server does not return JSON.
     }
@@ -45,30 +31,40 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
 }
 
 export const api = {
-  getCurrentUser: () => request<{ user: import('../contexts/AuthContext').User } | import('../contexts/AuthContext').User>('/auth/me'),
-  login: (payload: { email: string; password: string; role?: import('../contexts/AuthContext').UserRole }) =>
-    request<{ user: import('../contexts/AuthContext').User }>('/auth/login', {
-      method: 'POST',
+  getCurrentUser: () =>
+    request<
+      | { user: import("../contexts/AuthContext").User }
+      | import("../contexts/AuthContext").User
+    >("/auth/me"),
+  login: (payload: {
+    email: string;
+    password: string;
+    role?: import("../contexts/AuthContext").UserRole;
+  }) =>
+    request<{ user: import("../contexts/AuthContext").User }>("/auth/login", {
+      method: "POST",
       body: JSON.stringify(payload),
     }),
-    register: (payload: import('../contexts/AuthContext').RegisterPayload) =>
-    request<{ user?: import('../contexts/AuthContext').User; message?: string }>('/auth/register', {
-      method: 'POST',
+  register: (payload: import("../contexts/AuthContext").RegisterPayload) =>
+    request<{
+      user?: import("../contexts/AuthContext").User;
+      message?: string;
+    }>("/auth/register", {
+      method: "POST",
       body: JSON.stringify(payload),
     }),
 
   forgotPassword: (payload: { email: string }) =>
-    request<{ message: string }>('/auth/forgot-password', {
-      method: 'POST',
+    request<{ message?: string }>("/auth/forgot-password", {
+      method: "POST",
       body: JSON.stringify(payload),
     }),
 
   resetPassword: (payload: { token: string; password: string }) =>
-    request<{ message: string }>('/auth/reset-password', {
-      method: 'POST',
+    request<{ message?: string }>("/auth/reset-password", {
+      method: "POST",
       body: JSON.stringify(payload),
     }),
-  logout: () => request<void>('/auth/logout', { method: 'POST' }),
+
+  logout: () => request<void>("/auth/logout", { method: "POST" }),
 };
-
-

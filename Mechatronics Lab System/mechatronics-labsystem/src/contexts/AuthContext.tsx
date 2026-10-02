@@ -21,7 +21,6 @@ export interface RegisterPayload {
   matricNumber: string;
   level: string;
   department: string;
-  email: string;
   gmailAddress: string;
   universityEmail: string;
   password: string;
