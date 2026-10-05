@@ -14,6 +14,8 @@ import { Reports } from './Page/Reports';
 import { Collaboration } from './Page/Collaboration';
 import { NotificationsPage } from './Page/Notifications';
 import { Profile } from './Page/Profile';
+import { ForgotPassword } from './Page/ForgotPassword';
+import { ResetPassword } from './Page/ResetPassword';
 import { Settings } from './Page/Settings';
 import { AdminRoute } from './Components/AdminRoute';
 import { AdminDashboard } from './Page/Admin';
@@ -46,6 +48,8 @@ function App() {
           <Routes>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/equipment" element={<Equipment />} />

@@ -70,7 +70,7 @@ export function SignIn() {
               </div>
             </div>
             <div className="form-links">
-              <a href="#">Forgot Password?</a>
+              <Link to="/forgot-password">Forgot Password?</Link>
               <Link to="/signup">Create Account</Link>
             </div>
             <button type="submit" className="signin-btn">
